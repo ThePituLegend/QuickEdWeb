@@ -26,6 +26,9 @@ jobs:
         mkdir -p build
         mkdir -p web
 
+    - name: Patch QuickEd library
+      run: git apply no-march.patch
+
     - name: Build QuickEd library
       run: |
         emcmake cmake -Bbuild -HQuickEd
