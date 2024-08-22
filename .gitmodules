@@ -1,0 +1,3 @@
+[submodule "QuickEd"]
+	path = QuickEd
+	url = git@github.com:maxdoblas/QuickEd.git

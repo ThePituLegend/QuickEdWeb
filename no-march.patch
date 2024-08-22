@@ -1,0 +1,16 @@
+diff --git a/QuickEd/CMakeLists.txt b/QuickEd/CMakeLists.txt
+index 43b2643..13377a2 100644
+--- a/QuickEd/CMakeLists.txt
++++ b/QuickEd/CMakeLists.txt
+@@ -60,9 +60,9 @@ endif()
+ # Set global compiler flags
+ add_compile_options(-fPIC)
+ if (NOT QUICKED_NONATIVE)
+-    add_compile_options(-march=native)
++    # add_compile_options(-march=native)
+ else()
+-    add_compile_options(-march=x86-64)
++    # add_compile_options(-march=x86-64)
+     if (NOT QUICKED_FORCESCALAR)
+         add_compile_options(-msse4.1 -mavx2)
+     endif()

@@ -1,0 +1,6 @@
+build/
+QuickEd/
+**.wasm
+src/lib
+src/include
+quicked.js

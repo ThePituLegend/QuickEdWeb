@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px 10px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.header h1 {
+  margin-top: 0;
+}
+
+.header p {
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+
+form {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  overflow: auto; /* Clear floats */
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button[type="button"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+#result {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#result p {
+  background-color: #ffffff; /* White background color */
+  border: 1px solid #ccc; /* Gray border */
+  padding: 10px; /* Padding inside the paragraphs */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px; /* Add some space between paragraphs */
+}
+
+#result {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#result h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#result p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}

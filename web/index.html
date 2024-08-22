@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickEd Web</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>QuickEd Web</h1>
+      <p>
+        Welcome to QuickEd Web. <br />
+        This is a simple web interface to get the alignment score and CIGAR
+        string of two DNA sequences, using the QuickEd library. <br />
+        Check the
+        <a href="https://github.com/maxdoblas/QuickEd" target="”_blank”"
+          >QuickEd repository</a
+        >
+        for more information on the library.
+      </p>
+      <p>
+        This interface uses the QuickEd library through WebAssembly. Everything
+        is done in your browser, no data is sent to any server.
+      </p>
+      <p>
+        <i>
+          <b>Warning:</b>
+          This is a simple interface for demonstration purposes. It is heavily
+          experimental and heavily undertested, so it may not work as expected in all cases.
+          Shoot the messenger in this case, the message is sound 😉
+        </i>
+      </p>
+    </div>
+
+    <div class="container">
+      <form>
+        <label for="pattern_in">Pattern:</label><br />
+        <input
+          type="text"
+          id="pattern_in"
+          name="pattern"
+          pattern="[ACGTNacgtn]*"
+          oninput="this.value = this.value.replace(/[^ACGTNacgtn]/, '').toUpperCase();"
+        /><br />
+        <label for="text_in">Text:</label><br />
+        <input
+          type="text"
+          id="text_in"
+          name="text"
+          pattern="[ACGTNacgtn]*"
+          oninput="this.value = this.value.replace(/[^ACGTNacgtn]/, '').toUpperCase();"
+        /><br /><br />
+        <button type="button" id="align_btn" name="align">Align!</button>
+      </form>
+
+      <div id="result">
+        <h2>Score</h2>
+        <p id="score_text">&nbsp;</p>
+
+        <h2>CIGAR</h2>
+        <p id="cigar_text">&nbsp;</p>
+      </div>
+    </div>
+  </body>
+</html>
