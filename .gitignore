@@ -1,5 +1,4 @@
 build/
-QuickEd/
 **.wasm
 src/lib
 src/include
