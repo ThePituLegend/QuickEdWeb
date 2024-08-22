@@ -1,0 +1,47 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Replace with your default branch if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Emscripten
+      uses: mymindstorm/setup-emsdk@v14
+
+    - name: Verify Emscripten installation
+      run: emcc -v
+
+    - name: Create build directories
+      run: |
+        mkdir -p build
+        mkdir -p web
+
+    - name: Build QuickEd library
+      run: |
+        emcmake cmake -Bbuild -HQuickEd
+        emmake make -C build quicked -j2
+
+    - name: Install QuickEd library
+      run: cmake --install build --config Release --prefix "src"
+
+    - name: Compile WebAssembly
+      run: >
+        emcc -o web/quicked.js src/quicked_wrapper.c -Isrc/include -Lsrc/lib -lquicked
+        -sALLOW_MEMORY_GROWTH -sEXPORTED_RUNTIME_METHODS=getValue,UTF8ToString,stringToNewUTF8
+        -sEXPORTED_FUNCTIONS=_malloc,_free,_quicked_aligner -sEXPORT_ES6 -sMODULARIZE
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./web
